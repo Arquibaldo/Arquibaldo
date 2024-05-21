@@ -1,41 +1,29 @@
-markdown
-# Programação do Jogo: Aventura Espacial
+import random
 
-## 1. Introdução
-- **Título do Jogo**: Aventura Espacial
-- **Gênero**: Ação e aventura
+def jogar_jogo():
+    # Gerar um número aleatório entre 1 e 100
+    numero_secreto = random.randint(1, 100)
+    tentativas = 0
+    palpite = None
+    
+    print("Bem-vindo ao jogo de adivinhação!")
+    print("Tente adivinhar o número secreto entre 1 e 100.")
+    
+    while palpite != numero_secreto:
+        try:
+            palpite = int(input("Digite o seu palpite: "))
+            tentativas += 1
+            
+            if palpite < numero_secreto:
+                print("Tente um número maior.")
+            elif palpite > numero_secreto:
+                print("Tente um número menor.")
+            else:
+                print(f"Parabéns! Você acertou o número secreto {numero_secreto} em {tentativas} tentativas.")
+        except ValueError:
+            print("Por favor, digite um número válido.")
+            
+    print("Fim do jogo!")
 
-## 2. Personagens
-- **Herói**: Capitão Star
-- **Vilão**: Lorde Zarg
-
-## 3. Cenário
-- **Ambientes**: Espaço sideral e planetas alienígenas
-
-## 4. Objetivo
-- **Missão Principal**: Derrotar Lorde Zarg e salvar a galáxia
-
-## 5. Níveis
-- **Nível 1**: Estação Espacial
-- **Nível 2**: Planeta Vermelho
-- **Nível 3**: Nave de Lorde Zarg
-
-## 6. Jogabilidade
-- **Plataforma**: 2D
-- **Controles**: Teclado e mouse
-- **Ações do Jogador**: Correr, pular, atirar
-
-## 7. Itens
-- **Arma**: Laser
-- **Escudo**: Protege contra ataques
-- **Munição**: Para recarregar a arma
-
-## 8. Inimigos
-- **Tipos de Inimigos**: Soldados robôs e alienígenas hostis
-- **Chefe Final**: Lorde Zarg
-
-## 9. Chefes
-- **Chefe Principal**: Lorde Zarg
-
-## 10. Final
-- **Conclusão**: Derrotar Lorde Zarg e realizar a cerimônia de salvação da galáxia
+if __name__ == "__main__":
+    jogar_jogo()
